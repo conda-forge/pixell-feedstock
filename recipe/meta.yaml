@@ -11,6 +11,7 @@ source:
 
 
 build:
+  noarch: python
   skip: true  # [py<39 or win]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   script_env:
