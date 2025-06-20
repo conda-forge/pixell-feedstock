@@ -18,7 +18,7 @@ build:
   entry_points:
     - benchmark-pixell-runner = pixell.scripts.benchmark_pixell_runner:main
     - benchmark-pixell = pixell.scripts.benchmark_pixell:main
-  number: 2
+  number: 3
 
 
 requirements:
@@ -47,7 +47,7 @@ requirements:
     - python
     - meson-python
     - cython
-    - numpy >=2.0 # Allow NumPy 2+
+    - numpy
     - scipy
     - astropy-base
     - healpy
