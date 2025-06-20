@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [py<39 or win]
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: MESON_ARGS="{{ meson_args }}" MESONPY_SKIP_COMPILER_CHECK="{{ mesonpy_skip_compiler_check }}" {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   script_env:
     - FFLAGS=-Wno-tabs -Wno-conversion -Wno-unused-variable
   entry_points:
@@ -31,6 +31,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - {{ stdlib("c") }}
+    - ninja
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - automake
@@ -38,7 +39,6 @@ requirements:
     - m4
     - libtool
     - make
-    - ninja
   host:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
@@ -47,7 +47,7 @@ requirements:
     - python
     - meson-python
     - cython
-    - numpy >=1.26 # Allow NumPy 2+
+    - numpy >=2.0 # Allow NumPy 2+
     - scipy
     - astropy-base
     - healpy
