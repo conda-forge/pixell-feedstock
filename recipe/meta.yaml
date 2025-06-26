@@ -45,7 +45,8 @@ requirements:
     - libopenblas * *openmp*
     - libblas * *openblas
     - python
-    - meson-python >=1.6.0
+    - meson-python
+    - meson >1.5.1                             # [osx and arm64]
     - cython
     - numpy >=1.26
     - scipy
