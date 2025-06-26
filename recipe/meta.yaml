@@ -14,12 +14,13 @@ build:
   skip: true  # [py<39 or win]
   script: MESON_ARGS="{{ meson_args }}" MESONPY_SKIP_COMPILER_CHECK="{{ mesonpy_skip_compiler_check }}" {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   script_env:
+    - MESONPY_SKIP_COMPILER_CHECK=1
+    - MESON_ARGS="--cross-file=meson-cross.txt"
     - FFLAGS=-Wno-tabs -Wno-conversion -Wno-unused-variable
   entry_points:
     - benchmark-pixell-runner = pixell.scripts.benchmark_pixell_runner:main
     - benchmark-pixell = pixell.scripts.benchmark_pixell:main
-  number: 4
-
+  number: 5
 
 requirements:
   build:
@@ -46,7 +47,7 @@ requirements:
     - libblas * *openblas
     - python
     - meson-python
-    - meson <1.5.0                             # [osx and arm64]
+    - meson <1.5.0 # [osx and arm64]
     - cython
     - numpy >=1.26
     - scipy

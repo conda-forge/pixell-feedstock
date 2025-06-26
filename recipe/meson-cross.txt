@@ -2,6 +2,8 @@
 fortran = 'gfortran'
 c = 'clang'
 cpp = 'clang++'
+ar = 'llvm-ar'
+strip = 'strip'
 
 [host_machine]
 system = 'darwin'
@@ -9,5 +11,6 @@ cpu_family = 'aarch64'
 cpu = 'arm64'
 endian = 'little'
 
-[properties]
-skip_sanity_check = true
+[built-in options]
+c_args = []
+cpp_args = []
