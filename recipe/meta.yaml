@@ -16,7 +16,7 @@ build:
     {% if target_platform == 'osx-arm64' %}
     MESON_ARGS="--cross-file=${RECIPE_DIR}/meson-cross.txt --skip-sanity-check"
     {% else %}
-    MESON_ARGS="{{ meson_args }}"
+    MESON_ARGS=""
     {% endif %}
     MESONPY_SKIP_COMPILER_CHECK=1 {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   script_env:
