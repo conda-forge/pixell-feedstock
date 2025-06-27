@@ -2,7 +2,3 @@
 mesonpy_skip_compiler_check:
   - 1  # [osx and arm64]
   - 0  # [not (osx and arm64)]
-
-meson_args:
-  - "--native-file=meson_arm64.ini"  # [osx and arm64]
-  - ""  # [not (osx and arm64)]
