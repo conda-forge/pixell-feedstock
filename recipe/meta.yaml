@@ -14,7 +14,7 @@ build:
   skip: true  # [py<39 or win]
   script: >-
     {% if target_platform == 'osx-arm64' %}
-    MESON_ARGS="--cross-file=${RECIPE_DIR}/meson-cross.txt --skip-sanity-check"
+    MESON_ARGS="--skip-sanity-check"
     {% else %}
     MESON_ARGS=""
     {% endif %}
