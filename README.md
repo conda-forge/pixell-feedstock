@@ -13,7 +13,7 @@ pixell is a library for loading, manipulating and analyzing maps stored in
 rectangular pixelization. It is mainly targeted for use with maps of the
 sky (e.g. CMB intensity and polarization maps, stacks of 21 cm intensity
 maps, binned galaxy positions or shear) in cylindrical projection, but
-its core functionality is more general. It extends numpy’s ndarray to an
+its core functionality is more general. It extends numpy's ndarray to an
 ndmap class that associates a World Coordinate System (WCS) with a numpy
 array. It includes tools for Fourier transforms (through numpy or pyfft)
 and spherical harmonic transforms (through ducc0) of such maps and tools
