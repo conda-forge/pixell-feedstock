@@ -12,13 +12,8 @@ source:
 
 build:
   skip: true  # [py<39 or win]
-  script: >-
-    {% if target_platform == 'osx-arm64' %}
-    MESON_ARGS="--skip-sanity-check"
-    {% else %}
-    MESON_ARGS=""
-    {% endif %}
-    MESONPY_SKIP_COMPILER_CHECK=1 {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   script_env:
     - MESONPY_SKIP_COMPILER_CHECK=1
     - FFLAGS=-Wno-tabs -Wno-conversion -Wno-unused-variable
