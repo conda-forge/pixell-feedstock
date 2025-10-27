@@ -71,6 +71,7 @@ requirements:
     - pytest-cov
     - astropy-base
     - healpy
+    - lenspyx
     - pyyaml
     - h5py
     - pillow !=10.4.0,>=5.3.0
