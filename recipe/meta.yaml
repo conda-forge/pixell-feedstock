@@ -18,7 +18,7 @@ build:
   entry_points:
     - benchmark-pixell-runner = pixell.scripts.benchmark_pixell_runner:main
     - benchmark-pixell = pixell.scripts.benchmark_pixell:main
-  number: 0
+  number: 1
 
 
 requirements:
