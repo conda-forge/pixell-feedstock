@@ -11,22 +11,25 @@ source:
 
 
 build:
-  skip: true  # [py<39 or win]
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  script_env:
-    - FFLAGS=-Wno-tabs -Wno-conversion -Wno-unused-variable
+  skip: true  # [py<310 or win]
   entry_points:
     - benchmark-pixell-runner = pixell.scripts.benchmark_pixell_runner:main
     - benchmark-pixell = pixell.scripts.benchmark_pixell:main
-  number: 0
+  number: 1
 
 
 requirements:
   build:
+    - python                              # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - cython                              # [build_platform != target_platform]
+    - numpy                               # [build_platform != target_platform]
+    - meson-python                        # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - {{ stdlib("c") }}
+    - ninja
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
     - automake
@@ -41,8 +44,9 @@ requirements:
     - libblas * *openblas
     - python
     - meson-python
+    - python-build
     - cython
-    - numpy >=1.26 # Allow NumPy 2+
+    - numpy
     - scipy
     - astropy-base
     - healpy
@@ -98,7 +102,7 @@ about:
     rectangular pixelization. It is mainly targeted for use with maps of the 
     sky (e.g. CMB intensity and polarization maps, stacks of 21 cm intensity 
     maps, binned galaxy positions or shear) in cylindrical projection, but 
-    its core functionality is more general. It extends numpy’s ndarray to an 
+    its core functionality is more general. It extends numpy's ndarray to an 
     ndmap class that associates a World Coordinate System (WCS) with a numpy 
     array. It includes tools for Fourier transforms (through numpy or pyfft) 
     and spherical harmonic transforms (through ducc0) of such maps and tools 
