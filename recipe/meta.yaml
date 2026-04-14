@@ -1,5 +1,5 @@
 {% set name = "pixell" %}
-{% set version = "0.31.8" %}
+{% set version = "0.31.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pixell-{{ version }}.tar.gz
-  sha256: f634956557f45132ec708c29640f6426d5fb2dd7f101c49f16e8cc87af8a487b
+  sha256: 78d78687cd4e07bd5ae5da1ab5c4e0f4e01fe2fdca648ce587e5a048df85e06a
 
 
 build:
@@ -15,7 +15,7 @@ build:
   entry_points:
     - benchmark-pixell-runner = pixell.scripts.benchmark_pixell_runner:main
     - benchmark-pixell = pixell.scripts.benchmark_pixell:main
-  number: 2
+  number: 0
 
 
 requirements:
