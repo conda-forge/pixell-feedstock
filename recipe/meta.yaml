@@ -1,5 +1,5 @@
 {% set name = "pixell" %}
-{% set version = "0.32.5" %}
+{% set version = "0.32.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/pixell-{{ version }}.tar.gz
-  sha256: 765d6ad7f079ab0f2d35d2dce00268af61c5d6022cc694043b41ac7464d95828
+  sha256: 31235394af7649a07e5183c358e61d9e56b05ec62ff54cecf42cb2a9e2246193
 
 
 build:
